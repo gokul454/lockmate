@@ -1,0 +1,429 @@
+
+
+
+* {
+    box-sizing: border-box
+}
+
+:root {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #f7f8fa;
+    background: #0b0d10;
+    font-synthesis: none
+}
+
+html,
+body,
+#root {
+    min-height: 100%;
+    margin: 0
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: radial-gradient(circle at 50% -10%, rgba(120, 120, 140, .14), transparent 35%), #0b0d10;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    padding: max(18px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom))
+}
+
+.shell {
+    width: min(100%, 460px);
+    padding: 12px 0 18px
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 4px 26px
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px
+}
+
+.brand-mark {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #2b3038;
+    border-radius: 12px;
+    background: #15181d;
+    font-size: 25px;
+    transform: rotate(90deg)
+}
+
+.brand-name {
+    font-weight: 760;
+    letter-spacing: -.02em
+}
+
+.brand-subtitle {
+    margin-top: 2px;
+    color: #777e89;
+    font-size: 11px
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.connection {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: #14171b;
+    border: 1px solid #252a31;
+    color: #aab0ba;
+    font-size: 11px;
+    font-weight: 650
+}
+
+.connection span,
+.state-pill span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #707780
+}
+
+.connection.online span {
+    background: #55d68b
+}
+
+.lock-badge-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #14171b;
+    border: 1px solid #252a31;
+    color: #88909c;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 140ms, color 140ms
+}
+
+.lock-badge-btn:hover {
+    background: #1f242b;
+    color: #f7f8fa
+}
+
+.device-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 18px;
+    border: 1px solid #242931;
+    background: linear-gradient(145deg, #15181d, #111419);
+    border-radius: 22px
+}
+
+.device-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: #20242b;
+    color: #dfe3e8;
+    font-size: 20px
+}
+
+.device-info {
+    min-width: 0;
+    flex: 1
+}
+
+.eyebrow {
+    color: #717985;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .14em
+}
+
+.device-info h1 {
+    margin: 3px 0 2px;
+    font-size: 15px;
+    letter-spacing: -.01em
+}
+
+.device-info p {
+    margin: 0;
+    color: #858c96;
+    font-size: 11px
+}
+
+.device-info strong {
+    color: #b9bec6
+}
+
+.state-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    padding: 6px 8px;
+    border-radius: 999px;
+    background: #1b1e23;
+    color: #9299a4;
+    font-size: 9px;
+    font-weight: 750;
+    white-space: nowrap
+}
+
+.state-pill.allowed span {
+    background: #55d68b
+}
+
+.state-pill.blocked span {
+    background: #ff6b6b
+}
+
+.controls {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px
+}
+
+.control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    min-height: 86px;
+    padding: 16px 18px;
+    border: 1px solid #2a2f37;
+    border-radius: 20px;
+    color: #f4f5f7;
+    background: #15181d;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 140ms ease, border-color 140ms ease, background 140ms ease
+}
+
+.control:active {
+    transform: scale(.985)
+}
+
+.control:disabled {
+    opacity: .62;
+    cursor: wait
+}
+
+.control.active {
+    border-color: #454b55;
+    background: #1b1f25
+}
+
+.control.block.active {
+    border-color: #7d3035
+}
+
+.control.allow.active {
+    border-color: #2d6848
+}
+
+.button-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: #23272e;
+    font-size: 23px;
+    font-weight: 400
+}
+
+.control.block .button-icon {
+    color: #ff7777
+}
+
+.control.allow .button-icon {
+    color: #65d998
+}
+
+.control strong {
+    display: block;
+    font-size: 14px;
+    letter-spacing: .04em
+}
+
+.control small {
+    display: block;
+    margin-top: 4px;
+    color: #7e8691;
+    font-size: 11px
+}
+
+.status-panel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 15px 16px;
+    border-radius: 18px;
+    border: 1px solid #252a31;
+    background: #111419
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%
+}
+
+.status-panel.safe .status-dot {
+    background: #55d68b
+}
+
+.status-panel.danger .status-dot {
+    background: #ff6b6b
+}
+
+.status-panel strong {
+    font-size: 12px
+}
+
+.status-panel p {
+    margin: 3px 0 0;
+    color: #747c87;
+    font-size: 10px
+}
+
+.lock-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 24px;
+    border: 1px solid #242931;
+    background: linear-gradient(145deg, #15181d, #111419);
+    border-radius: 24px;
+    margin-top: 12px
+}
+
+.lock-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: 20px;
+    background: #1d2128;
+    border: 1px solid #2d333d;
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: #dfe3e8
+}
+
+.lock-card h2 {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -.01em
+}
+
+.lock-card p {
+    margin: 0 0 24px;
+    color: #7a828e;
+    font-size: 12px
+}
+
+.lock-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.lock-input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid #2c323b;
+    background: #0d0f12;
+    color: #f7f8fa;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: .2em;
+    outline: none;
+    transition: border-color 150ms ease
+}
+
+.lock-input:focus {
+    border-color: #55d68b
+}
+
+.lock-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, #2575fc, #1a5bd8);
+    color: #fff;
+    font-weight: 650;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 150ms ease, transform 140ms ease
+}
+
+.lock-btn:active {
+    transform: scale(.985)
+}
+
+.lock-btn:hover {
+    opacity: .92
+}
+
+.error {
+    margin-top: 12px;
+    padding: 11px 12px;
+    border-radius: 12px;
+    background: #32191b;
+    border: 1px solid #613035;
+    color: #ff9a9a;
+    font-size: 11px
+}
+
+footer {
+    padding: 20px 4px 0;
+    color: #5f6670;
+    font-size: 10px;
+    text-align: center
+}
+
+@media(min-width:700px) {
+    .app {
+        align-items: center
+    }
+
+    .shell {
+        padding: 20px 0
+    }
+}
